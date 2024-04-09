@@ -15,7 +15,7 @@ export default function Page() {
         width: "100%",
       }}
     >
-      <div className="min-h-screen">
+      <div className="page-section">
         <Header />
         <Container className="flex items-center justify-start">
           <Form />

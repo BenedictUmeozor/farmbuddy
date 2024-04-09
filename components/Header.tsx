@@ -5,7 +5,7 @@ import Logo from "./Logo";
 export default function Header() {
   return (
     <header>
-      <Container className="py-6 flex items-center justify-between text-white bg-transparent">
+      <Container className="py-4 flex items-center justify-between text-white bg-transparent">
         <Logo />
         <nav>
           <ul className="flex items-center gap-16">

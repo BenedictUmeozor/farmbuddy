@@ -12,12 +12,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #4CAF50;
+  background: #4caf50;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #659167;
-
 }
 
 :root {
@@ -38,6 +37,14 @@
   font-style: normal;
 }
 
-a, button {
+a,
+button {
   transition: all 0.3s ease;
+}
+
+.page-section {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
