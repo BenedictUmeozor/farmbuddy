@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Day from "./Day";
+import Day from "../dashboard/components/Day";
 import { formatDate } from "@/utils/functions";
 import { v4 as uuidV4 } from "uuid";
 import { LocationWeather, WeatherInfo } from "@/types/types";

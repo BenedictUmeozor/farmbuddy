@@ -31,3 +31,28 @@ export function formatDayOfWeek(date: Date): string {
   const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return daysOfWeek[date.getDay()];
 }
+
+export interface TimeInfo {
+  timeString: string;
+  period: string; 
+}
+
+export function getTimeInfo(date: Date): TimeInfo {
+  let hours = date.getHours();
+  const minutes = date.getMinutes();
+  const ampm = hours >= 12 ? "PM" : "AM";
+  hours = hours % 12;
+  hours = hours ? hours : 12; // Handle midnight (0 hours)
+  const formattedHours = hours < 10 ? "0" + hours : hours;
+  const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+  const timeString = `${formattedHours}:${formattedMinutes} ${ampm}`;
+  let period = "";
+  if (hours < 12) {
+    period = "Morning";
+  } else if (hours >= 12 && hours < 18) {
+    period = "Afternoon";
+  } else {
+    period = "Evening";
+  }
+  return { timeString, period };
+}

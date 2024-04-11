@@ -1,6 +1,6 @@
 import HeaderOne from "../components/HeaderOne";
 import PestAnalysis from "./components/PestAnalysis";
-import Weather from "./components/Weather";
+import Weather from "../components/Weather";
 import MarketListing from "./components/MarketListing";
 import Jornals from "./components/Jornals";
 
