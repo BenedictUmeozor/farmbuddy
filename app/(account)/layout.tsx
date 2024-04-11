@@ -23,14 +23,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={roboto.className}>
         {" "}
-        <section className="grid grid-cols-12 max-w-[1800px] mx-auto min-h-screen">
-          <div className="bg-primary text-white col-span-2 p-4 side-bar">
+        <section className="grid grid-cols-12 max-w-[1800px] mx-auto h-screen">
+          <div className="bg-primary text-white col-span-2 p-4 side-bar h-screen">
             <div>
               <Logo />
             </div>
             <SideBar />
           </div>
-          <div className="col-span-10 min-h-screen overflow-y-auto">
+          <div className="col-span-10 h-screen overflow-y-auto">
             {children}
           </div>
         </section>

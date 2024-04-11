@@ -1,34 +1,28 @@
-"use client";
-
 import HeaderOne from "../components/HeaderOne";
+import PestAnalysis from "./components/PestAnalysis";
+import Weather from "./components/Weather";
+import MarketListing from "./components/MarketListing";
+import Jornals from "./components/Jornals";
 
 export default function Page() {
   return (
-    <section className="p-6">
+    <section className="p-6 pb-12">
       <HeaderOne />
       <div className="dashboard-column mt-6">
         <div className="rounded shadow p-2 pb-6">
           <h3 className="text-xl font-bold pb-4 border-b border-b-[#BBBBBB]">
             Pest Analysis
           </h3>
-          <ul>
-            <li className="text-[#EE4B27] py-4 border-b border-b-[#BBBBBB]">
-              High risk
-            </li>
-            <li className="text-[#C7B301] py-4 border-b border-b-[#BBBBBB]">
-              Medium risk
-            </li>
-            <li className="text-[#009F08] py-4 border-b border-b-[#BBBBBB]">
-              Low risk
-            </li>
-            <li className="text-[#009F08] py-4 border-b border-b-[#BBBBBB]">
-              Zero risk
-            </li>
-          </ul>
+          <PestAnalysis />
         </div>
-        <div className="rounded shadow p-2">
-          <h3>Weather</h3>
+        <div className="rounded shadow p-4">
+          <h3 className="text-xl font-bold pb-4">Weather</h3>
+          <Weather />
         </div>
+      </div>
+      <div className="dashboard-column mt-6">
+        <MarketListing />
+        <Jornals />
       </div>
     </section>
   );
