@@ -6,7 +6,7 @@ import { DocumentIcon } from "@heroicons/react/24/solid";
 import { CpuChipIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { List, LogOut, TrendingUp } from "react-feather";
+import { List, LogOut, Settings, TrendingUp } from "react-feather";
 
 export default function SideBar() {
   const pathname = usePathname();
@@ -78,6 +78,17 @@ export default function SideBar() {
             }
           >
             <DocumentIcon className="w-5" /> Articles
+          </Link>
+        </li>
+        <li className="w-full">
+          <Link
+            href="/settings"
+            className={
+              "w-full flex items-center gap-2 hover:bg-[#A5D7A7] p-2 " +
+              (pathname === "/settings" ? "bg-[#A5D7A7]" : "")
+            }
+          >
+            <Settings className="w-5" /> Settings
           </Link>
         </li>
       </ul>
