@@ -1,5 +1,6 @@
 import HeaderTwo from "../components/HeaderTwo";
 import UserIcon from "@/assets/icons/UserIcon";
+import Form from "./Form";
 
 export default function Page() {
   return (
@@ -13,7 +14,7 @@ export default function Page() {
             <p className="text-base text-[#999]">Lagos, Nigeria</p>
           </div>
         </div>
-        <form className="w-[90%]"></form>
+        <Form />
       </div>
     </section>
   );
