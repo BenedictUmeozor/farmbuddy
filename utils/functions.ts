@@ -1,3 +1,7 @@
+import { RegisterDetails } from "./../types/types";
+import { LoginDetails } from "@/types/types";
+import { signIn } from "next-auth/react";
+
 export function formatDate(date: Date): string {
   const day = date.getDate();
   const monthIndex = date.getMonth();
@@ -34,7 +38,7 @@ export function formatDayOfWeek(date: Date): string {
 
 export interface TimeInfo {
   timeString: string;
-  period: string; 
+  period: string;
 }
 
 export function getTimeInfo(date: Date): TimeInfo {
@@ -56,3 +60,68 @@ export function getTimeInfo(date: Date): TimeInfo {
   }
   return { timeString, period };
 }
+
+export const loginUser = async ({
+  email,
+  password,
+}: LoginDetails): Promise<boolean> => {
+  try {
+    const res = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+
+    if (res?.error) {
+      throw new Error("Invalid credentials");
+    }
+
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
+
+export const registerUser = async ({
+  email,
+  name,
+  password,
+}: RegisterDetails): Promise<{ status: boolean; message: string }> => {
+  try {
+    const userExist = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/user-exists`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      }
+    );
+
+    const { user } = await userExist.json();
+
+    if (user) {
+      throw new Error("User already exists");
+    }
+
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/register`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error("An error occurred");
+    }
+
+    return { status: true, message: "User created successfully" };
+  } catch (error) {
+    return { status: false, message: (error as Error).message };
+  }
+};

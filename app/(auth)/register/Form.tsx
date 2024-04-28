@@ -5,14 +5,52 @@ import google from "@/assets/google-g-2015.svg";
 import apple from "@/assets/apple-14.svg";
 import facebook from "@/assets/facebook-2020-2-1.svg";
 import Image from "next/image";
+import { useFormState } from "react-dom";
+import { createUser } from "@/utils/actions";
+import { SubmitButton } from "@/components/Submitbutton";
+import { RegisterFormState } from "@/types/types";
+import { useEffect } from "react";
+import { loginUser } from "@/utils/functions";
+import { useRouter } from "next/navigation";
+
+const initialState: RegisterFormState = {
+  message: "",
+  success: "",
+  details: { email: "", password: "" },
+};
 
 export default function Form() {
+  const [state, formAction] = useFormState(createUser, initialState);
+  const router = useRouter();
+
+  useEffect(() => {
+    (async () => {
+      if (state.success) {
+        const login = await loginUser(state.details);
+        if (login) {
+          router.push("/dashboard");
+        }
+      }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state]);
+
   return (
     <div className="bg-white md:w-[60%] lg:w-[50%] max-w-lg p-6 rounded-md my-8">
       <h2 className="text-center font-semibold text-2xl mb-6">
         Create your account
       </h2>
-      <form className="w-full">
+      {state.message && (
+        <p className="text-[0.85rem] text-red-600 text-center">
+          {state.message}
+        </p>
+      )}
+      {state.success && (
+        <p className="text-[0.85rem] text-green-600 text-center">
+          {state.success}
+        </p>
+      )}
+      <form className="w-full" action={formAction}>
         <div className="mb-4">
           <input
             type="text"
@@ -62,9 +100,10 @@ export default function Form() {
           <input type="checkbox" name="receive_mails" />{" "}
           <span>I want to receive emails and newsletters from Farmbuddy</span>
         </div>
-        <button className="h-14 w-full bg-primary text-white text-center hover:border hover:border-primary hover:bg-white hover:text-primary rounded-3xl transition-all duration-200 ease-linear">
-          Continue
-        </button>
+        <SubmitButton
+          text="Continue"
+          className="h-14 w-full bg-primary text-white text-center hover:border hover:border-primary hover:bg-white hover:text-primary rounded-3xl transition-all duration-200 ease-linear"
+        />
       </form>
       <p className="text-center my-6">or continue with</p>
       <div className="flex items-center justify-center gap-4">

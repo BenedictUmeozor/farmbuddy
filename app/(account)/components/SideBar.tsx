@@ -6,7 +6,8 @@ import { DocumentIcon } from "@heroicons/react/24/solid";
 import { CpuChipIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { List, LogOut, Settings, TrendingUp } from "react-feather";
+import { List, Settings, TrendingUp } from "react-feather";
+import SignOutButton from "./SignOutButton";
 
 export default function SideBar() {
   const pathname = usePathname();
@@ -92,9 +93,7 @@ export default function SideBar() {
           </Link>
         </li>
       </ul>
-      <button className="flex items-center gap-2 hover:bg-[#A5D7A7] p-2">
-        <LogOut className="w-5" /> Logout
-      </button>
+      <SignOutButton />
     </nav>
   );
 }

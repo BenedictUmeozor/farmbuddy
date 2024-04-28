@@ -5,19 +5,59 @@ import google from "@/assets/google-g-2015.svg";
 import apple from "@/assets/apple-14.svg";
 import facebook from "@/assets/facebook-2020-2-1.svg";
 import Image from "next/image";
+import { FormEvent, useState } from "react";
+import { loginUser } from "@/utils/functions";
+import { useRouter } from "next/navigation";
 
 export default function Form() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
+
+  const submitForm = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    try {
+      setLoading(true);
+
+      if (!email || !password) {
+        setError("Please fill all fields");
+        return;
+      }
+
+      const login = await loginUser({ email, password });
+      
+      if (!login) {
+        setError("Invalid email or password");
+        return;
+      }
+
+      router.push("/dashboard");
+    } catch (error) {
+      setError("Invalid email or password");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="bg-white md:w-[60%] lg:w-[50%] max-w-lg p-6 rounded-md my-8">
       <h2 className="text-center font-semibold text-2xl mb-6">
         Welcome back, Login
       </h2>
-      <form className="w-full">
+      {error && (
+        <p className="text-[0.85rem] text-red-600 text-center">{error}</p>
+      )}
+      <form className="w-full" onSubmit={submitForm}>
         <div className="mb-4">
           <input
             type="email"
             name="email"
             placeholder="Email Address"
+            defaultValue={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="h-14 border border-[#ddd] rounded w-full px-3 focus:outline-none focus:border-primary"
           />
         </div>
@@ -26,12 +66,17 @@ export default function Form() {
             type="password"
             name="password"
             placeholder="Password"
+            defaultValue={password}
+            onChange={(e) => setPassword(e.target.value)}
             className="h-14 border border-[#ddd] rounded w-full px-3 focus:outline-none focus:border-primary"
           />
         </div>
 
-        <button className="h-14 w-full bg-primary text-white text-center hover:border hover:border-primary hover:bg-white hover:text-primary rounded-3xl transition-all duration-200 ease-linear">
-          Login
+        <button
+          disabled={loading}
+          className="h-14 w-full bg-primary text-white text-center hover:border hover:border-primary hover:bg-white hover:text-primary rounded-3xl transition-all duration-200 ease-linear"
+        >
+          {loading ? "Loading..." : "Login"}
         </button>
       </form>
       <p className="text-center my-6">or login with</p>

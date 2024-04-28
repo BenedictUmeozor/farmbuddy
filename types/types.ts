@@ -47,3 +47,20 @@ export type LocationWeather = {
   current: WeatherInfo;
   daily: WeatherInfo[];
 };
+
+export type LoginDetails = {
+  email: string;
+  password: string;
+};
+
+export type RegisterDetails = {
+  name: string;
+  email: string;
+  password: string;
+};
+
+export type RegisterFormState = {
+  message: string;
+  success: string;
+  details: LoginDetails;
+};

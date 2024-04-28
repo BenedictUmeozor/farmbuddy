@@ -1,9 +1,18 @@
+"use client";
+
 import Container from "@/components/Container";
 import authImage from "@/assets/auth.png";
 import Header from "@/components/Header";
 import Form from "./Form";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
+  const { status } = useSession();
+  const router = useRouter();
+
+  if (status === "authenticated") router.push("/dashboard");
+
   return (
     <section
       style={{
