@@ -7,10 +7,10 @@ import Image from "next/image";
 export default function Showcase() {
   return (
     <section className="relative min-h-[75vh] flex items-center justify-center">
-      <div className="absolute w-full h-[40%] top-0 left-0 bg-white z-[-1]"></div>
-      <div className="absolute w-full h-[60%] bottom-0 left-0 bg-primary z-[-1]"></div>
+      <div className="absolute w-full h-[40%] max-md:h-[45%] top-0 left-0 bg-white z-[-1]"></div>
+      <div className="absolute w-full h-[60%] max-md:h-[55%] bottom-0 left-0 bg-primary z-[-1]"></div>
       <Container className="h-full py-[7.5%] z-[2]">
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-4 max-md:flex-col">
           <div className="flex-1 rounded-[50%]">
             <Image
               src={image1}

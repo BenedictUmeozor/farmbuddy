@@ -11,7 +11,9 @@ export default function Page() {
   const { status } = useSession();
   const router = useRouter();
 
-  if (status === "authenticated") router.push("/dashboard");
+  if (status === "authenticated") {
+    router.push("/dashboard");
+  }
 
   return (
     <section

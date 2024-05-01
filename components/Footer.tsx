@@ -9,7 +9,7 @@ import X from "@/assets/icons/X";
 export default function Footer() {
   return (
     <footer className="py-8 bg-primary text-white">
-      <Container className="grid grid-cols-4 gap-6">
+      <Container className="grid grid-cols-4 gap-6 max-md:grid-cols-1 max-md:gap-12 max-md:text-center">
         <div>
           <Link
             href="/"
@@ -68,16 +68,16 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div className="">
           <Link
             href="/login"
-            className="block py-2 w-60 border border-white bg-transparent text-center rounded-full mb-6 text-white hover:bg-white hover:border-primary hover:text-primary"
+            className="block py-2 w-60 border border-white bg-transparent text-center rounded-full mb-6 text-white hover:bg-white hover:border-primary hover:text-primary max-md:mx-auto"
           >
             Login
           </Link>
           <Link
             href="/register"
-            className="block py-2 w-60 border border-white bg-white text-primary text-center rounded-full hover:bg-primary hover:text-white hover:border-white"
+            className="block py-2 w-60 border border-white bg-white text-primary text-center rounded-full hover:bg-primary hover:text-white hover:border-white max-md:mx-auto"
           >
             Create an account
           </Link>

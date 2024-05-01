@@ -24,7 +24,7 @@ export default function Hero() {
               className="text-5xl text-center font-semibold mb-6"
               style={{ lineHeight: 1.1 }}
             >
-              Empowering Farmers With <br /> Smart Solutions
+              Empowering Farmers With <br className="max-md:hidden" /> Smart Solutions
             </h2>
             <p className="mb-6 mx-auto max-w-lg">
               Experience the future of farming with FarmBuddy. Join thousands of

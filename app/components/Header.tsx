@@ -5,7 +5,7 @@ export default function PageHeader() {
   return (
     <header className="py-6 flex items-center justify-between text-white bg-transparent w-full">
       <Logo className="flex-1" />
-      <nav className="flex-[2] grid place-items-center">
+      <nav className="flex-[2] grid place-items-center max-md:hidden">
         <ul className="flex items-center justify-around w-full">
           <li>
             <Link href="/" className="font-semibold hover:text-primary">
@@ -27,7 +27,7 @@ export default function PageHeader() {
       <div className="flex-1 flex items-center justify-end">
         <Link
           href="/login"
-          className="text-primary inline-block text-center py-2 px-4 rounded-full bg-white w-40 hover:bg-primary hover:text-white"
+          className="text-primary inline-block text-center py-2 px-4 rounded-full bg-white w-40 hover:bg-primary hover:text-white max-md:w-28"
         >
           Login
         </Link>

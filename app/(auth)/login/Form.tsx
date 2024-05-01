@@ -28,13 +28,11 @@ export default function Form() {
       }
 
       const login = await loginUser({ email, password });
-      
+
       if (!login) {
         setError("Invalid email or password");
         return;
       }
-
-      router.push("/dashboard");
     } catch (error) {
       setError("Invalid email or password");
     } finally {
