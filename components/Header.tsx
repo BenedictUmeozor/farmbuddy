@@ -8,7 +8,7 @@ export default function Header() {
       <Container className="py-4 flex items-center justify-between text-white bg-transparent">
         <Logo />
         <nav>
-          <ul className="flex items-center gap-16">
+          <ul className="flex items-center gap-16 max-md:gap-8">
             <li>
               <Link href="/" className="font-semibold hover:text-primary">
                 Home

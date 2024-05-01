@@ -5,8 +5,8 @@ import Image from "next/image";
 export default function Logo({ className = "" }: { className?: string }) {
   return (
     <Link href="/" className={`flex items-center gap-2 hover:text-primary ${className}`}>
-      <Image src={logo} alt="logo" height={30} width={30} className="w-10" />
-      <p className="text-3xl text-white font-bold jockey-font hover:text-primary">Farmbuddy</p>
+      <Image src={logo} alt="logo" height={30} width={30} className="w-10 max-md:w-8" />
+      <p className="text-3xl max-md:text-2xl text-white font-bold jockey-font hover:text-primary">Farmbuddy</p>
     </Link>
   );
 }

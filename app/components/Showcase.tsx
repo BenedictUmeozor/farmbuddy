@@ -10,14 +10,14 @@ export default function Showcase() {
       <div className="absolute w-full h-[40%] max-md:h-[45%] top-0 left-0 bg-white z-[-1]"></div>
       <div className="absolute w-full h-[60%] max-md:h-[55%] bottom-0 left-0 bg-primary z-[-1]"></div>
       <Container className="h-full py-[7.5%] z-[2]">
-        <div className="flex items-center justify-between gap-4 max-md:flex-col">
+        <div className="flex items-center justify-between gap-4 max-md:flex-col max-md:gap-8">
           <div className="flex-1 rounded-[50%]">
             <Image
               src={image1}
               height={200}
               width={200}
               alt="image"
-              className="w-full max-w-full rounded-[50%]"
+              className="w-full max-w-full max-md:max-w-[90%] rounded-[50%]"
             />
           </div>
           <div className="flex-1 rounded-[50%]">
@@ -26,7 +26,7 @@ export default function Showcase() {
               height={200}
               width={200}
               alt="image"
-              className="w-full max-w-full rounded-[50%]"
+              className="w-full max-w-full rounded-[50%] max-md:max-w-[90%]"
             />
           </div>
           <div className="flex-1 rounded-[50%]">
@@ -35,11 +35,11 @@ export default function Showcase() {
               height={200}
               width={200}
               alt="image"
-              className="w-full max-w-full rounded-[50%]"
+              className="w-full max-w-full rounded-[50%] max-md:max-w-[90%]"
             />
           </div>
         </div>
-        <p className="mt-[10%] text-center text-xl text-white">
+        <p className="mt-[10%] text-center text-xl text-white max-md:text-base">
           Get ready to have a better farming experience with precision farming
         </p>
       </Container>

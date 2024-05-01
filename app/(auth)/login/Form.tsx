@@ -41,7 +41,7 @@ export default function Form() {
   };
 
   return (
-    <div className="bg-white md:w-[60%] lg:w-[50%] max-w-lg p-6 rounded-md my-8">
+    <div className="bg-white w-full md:w-[60%] lg:w-[50%] mdmax-w-lg p-6 rounded-md my-8">
       <h2 className="text-center font-semibold text-2xl mb-6">
         Welcome back, Login
       </h2>

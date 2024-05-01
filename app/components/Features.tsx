@@ -59,7 +59,7 @@ function Feature({
     <div className="flex items-start gap-2 max-md:flex-col">
       <div className="max-md:flex items-center justify-center max-md:w-full">{children}</div>
       <div>
-        <h3 className="text-2xl mb-2 font-bold">{title}</h3>
+        <h3 className="text-2xl mb-2 font-bold max-md:text-xl">{title}</h3>
         <p className="text-[0.9rem] text-[#333]">{desc}</p>
       </div>
     </div>
@@ -70,7 +70,7 @@ export default function Features() {
   return (
     <section className="">
       <Container className="h-full py-[5%] max-md:text-center">
-        <h2 className="mb-16 text-center text-4xl font-semibold">Features</h2>
+        <h2 className="mb-16 text-center text-4xl font-semibold max-md:text-3xl max-md:mb-8">Features</h2>
         <div className="grid grid-cols-3 gap-6 max-md:grid-cols-1">
           {features.map((feature) => (
             <Feature

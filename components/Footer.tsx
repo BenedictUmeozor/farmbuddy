@@ -11,29 +11,26 @@ export default function Footer() {
     <footer className="py-8 bg-primary text-white">
       <Container className="grid grid-cols-4 gap-6 max-md:grid-cols-1 max-md:gap-12 max-md:text-center">
         <div>
-          <Link
-            href="/"
-            className={`flex items-center gap-2 hover:text-primary`}
-          >
+          <Link href="/" className={`flex items-center gap-2 max-md:justify-center`}>
             <Image
               src={logo}
               alt="logo"
               height={30}
               width={30}
-              className="w-10"
+              className="w-10 max-md:w-8"
             />
-            <p className="text-3xl text-white font-bold jockey-font hover:text-primary">
+            <p className="text-3xl max-md:text-2xl text-white font-bold jockey-font hover:opacity-80">
               Farmbuddy
             </p>
           </Link>
-          <div className="mt-6 flex items-center gap-2">
+          <div className="mt-6 flex items-center gap-2 max-md:justify-center">
             <Facebook className="w-8 text-white cursor-pointer" />
             <Instagram className="w-8 text-white cursor-pointer" />
             <X className="w-8 text-white cursor-pointer" />
           </div>
         </div>
         <div>
-          <h2 className="text-3xl text-white font-bold  hover:text-primary">
+          <h2 className="text-3xl text-white font-bold  hover:opacity-80">
             Company
           </h2>
           <ul className="mt-6">
@@ -49,7 +46,7 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h2 className="text-3xl text-white font-bold  hover:text-primary">
+          <h2 className="text-3xl text-white font-bold  hover:opacity-80">
             Support
           </h2>
           <ul className="mt-6">
@@ -71,7 +68,7 @@ export default function Footer() {
         <div className="">
           <Link
             href="/login"
-            className="block py-2 w-60 border border-white bg-transparent text-center rounded-full mb-6 text-white hover:bg-white hover:border-primary hover:text-primary max-md:mx-auto"
+            className="block py-2 w-60 border border-white bg-transparent text-center rounded-full mb-6 text-white hover:bg-white hover:border-primary hover:opacity-80 max-md:mx-auto"
           >
             Login
           </Link>
