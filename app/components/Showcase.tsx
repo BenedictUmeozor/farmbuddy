@@ -17,7 +17,7 @@ export default function Showcase() {
               height={200}
               width={200}
               alt="image"
-              className="w-full max-w-full max-md:max-w-[90%] rounded-[50%]"
+              className="w-full max-w-full max-md:max-w-[90%] rounded-[50%] mx-auto"
             />
           </div>
           <div className="flex-1 rounded-[50%]">
@@ -26,7 +26,7 @@ export default function Showcase() {
               height={200}
               width={200}
               alt="image"
-              className="w-full max-w-full rounded-[50%] max-md:max-w-[90%]"
+              className="w-full max-w-full rounded-[50%] max-md:max-w-[90%] mx-auto"
             />
           </div>
           <div className="flex-1 rounded-[50%]">
@@ -35,7 +35,7 @@ export default function Showcase() {
               height={200}
               width={200}
               alt="image"
-              className="w-full max-w-full rounded-[50%] max-md:max-w-[90%]"
+              className="w-full max-w-full rounded-[50%] max-md:max-w-[90%] mx-auto"
             />
           </div>
         </div>
